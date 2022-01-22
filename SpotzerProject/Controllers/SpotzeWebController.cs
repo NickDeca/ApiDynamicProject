@@ -1,14 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using SimpleInjector;
-using SpotzerProject.Base;
-using SpotzerProject.HelperFunctions;
 using SpotzerProject.Interfaces;
 using SpotzerProject.Models;
 
@@ -38,24 +29,6 @@ namespace SpotzerProject.Controllers
             {
                 return Content(err.Message);
             }
-        }
-
-        [HttpPost]
-        [Route("ReadApi2ndApproach")]
-        public IActionResult ReadApi2ndApproach([FromBody] ProductJson baseRequest)
-        {
-            try
-            {
-
-                return Ok("Product received.");
-            }catch(Exception err)
-            {
-                return  Content(err.Message);
-            }
-        }
-
-
+        }        
     }
-
-
 }
