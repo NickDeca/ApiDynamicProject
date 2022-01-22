@@ -24,20 +24,19 @@ namespace SpotzerProject.Controllers
             _factory = factory;
         }
 
-        // TODO inheritance polla 8a kanoun sto ProductJson gia na mporoume na valoume osa 8eloume
+
         [HttpPost]
         [Route("ReadApi")]
-        public void ReadApi([FromBody] ProductJson data)
+        public IActionResult ReadApi([FromBody] ProductJson data)
         {
             try
             {
                 var dataDynamicObject = _factory.DynamicObjectAllocatorFactory(data);
-
-                //var dataObject = Newtonsoft.Json.JsonConvert.DeserializeObject<ProductJson>("");
+                return Ok("Product received");
             }
             catch (Exception err)
             {
-
+                return Content(err.Message);
             }
         }
 

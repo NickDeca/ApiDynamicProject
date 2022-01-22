@@ -19,14 +19,10 @@ namespace SpotzerProject.HelperFunctions
 
         public dynamic CastDynamicly(dynamic objectCast, string type)
         {
-            try
-            {
-                return Newtonsoft.Json.JsonConvert.DeserializeObject(objectCast.ToString(), _typeDictionary[type]);
-            }
-            catch (Exception err)
-            {
-                throw err;
-            }
+            if (!_typeDictionary.ContainsKey(type))
+                throw new Exception($"Project Type {type}");
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject(objectCast.ToString(), _typeDictionary[type]);
         }
 
         public T JsonToObject<T>(string input) where T : class
@@ -43,15 +39,17 @@ namespace SpotzerProject.HelperFunctions
 
         public dynamic ConvertDynamiclyFromDictionary(BaseModel line)
         {
+            var typeCast = _typeDictionary[line.ProductType];
+            if (typeCast == null)
+                throw new Exception($"Project Type {line.ProductType}");
             try
             {
-                var typeCast = _typeDictionary[line.ProductType];
                 var castedLine = Convert.ChangeType(line.Website, typeCast);
                 return castedLine;
             }
             catch (Exception err)
             {
-                throw err;
+                throw new Exception($"Conversion of Product to {line.ProductType} failed");
             }
         }
     }
