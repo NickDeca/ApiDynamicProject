@@ -12,6 +12,8 @@ namespace SpotzerProject.Models
 
         private dynamic _details;
 
+        // Binds the Json name WebsiteDetails and sets the value of the dynamic field _details. 
+        // Returns the field _details
         [JsonProperty("WebsiteDetails")]
         public dynamic Website
         {
@@ -23,6 +25,8 @@ namespace SpotzerProject.Models
             }
         }
 
+        // Binds the Json name AdWordCampaign and sets the value of the dynamic field _details. 
+        // Returns the field _details
         [JsonProperty("AdWordCampaign")]
         public dynamic PaidSearch
         {
@@ -33,6 +37,5 @@ namespace SpotzerProject.Models
                 _details = value;
             }
         }
-        //public IByProduct OthersTh { get; set; }
     }
 }

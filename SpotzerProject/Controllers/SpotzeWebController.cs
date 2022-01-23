@@ -10,6 +10,11 @@ namespace SpotzerProject.Controllers
     public class SpotzeWebController : ControllerBase
     {
         private IFactory _factory;
+
+        /// <summary>
+        /// DI with Simple Injector of ObjectFactoryDynamic object
+        /// </summary>
+        /// <param name="factory"></param>
         public SpotzeWebController(IFactory factory)
         {
             _factory = factory;

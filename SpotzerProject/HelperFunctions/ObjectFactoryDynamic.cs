@@ -5,10 +5,15 @@ namespace SpotzerProject.HelperFunctions
 {
     public class ObjectFactoryDynamic : IFactory
     {
-        private Converters _converter;
-        public ObjectFactoryDynamic()
+        private IConverterSp _converter;
+
+        /// <summary>
+        /// DI with Simple Injector of Converters object
+        /// </summary>
+        /// <param name="converter"></param>
+        public ObjectFactoryDynamic(IConverterSp converter)
         {
-            _converter = new Converters();
+            _converter = converter;
         }
 
         /// <summary>
