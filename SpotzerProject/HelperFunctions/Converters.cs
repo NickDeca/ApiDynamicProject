@@ -26,8 +26,7 @@ namespace SpotzerProject.HelperFunctions
         /// <returns></returns>
         public dynamic CastDynamicly(dynamic objectCast, string type)
         {
-            if (!_typeDictionary.ContainsKey(type))
-                throw new Exception($"Project Type {type}");
+            ValidateJson(objectCast, type);
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject(objectCast.ToString(), _typeDictionary[type]);
         }
@@ -69,6 +68,18 @@ namespace SpotzerProject.HelperFunctions
             {
                 throw new Exception($"Conversion of Product to {line.ProductType} failed");
             }
+        }
+    
+        private void ValidateJson(dynamic objectCast, string type)
+        {
+            if (type == null)
+                throw new Exception("No Product Type found in Json. Invalid Json");
+
+            if (objectCast == null)
+                throw new Exception("No Details found in Json. Invalid Json");
+
+            if (!_typeDictionary.ContainsKey(type))
+                throw new Exception($"Project Type {type}");
         }
     }
 }

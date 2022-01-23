@@ -1,5 +1,6 @@
 ﻿using SpotzerProject.Interfaces;
 using SpotzerProject.Models;
+using System;
 
 namespace SpotzerProject.HelperFunctions
 {
@@ -23,6 +24,9 @@ namespace SpotzerProject.HelperFunctions
         /// <returns></returns>
         public ProductJson DynamicObjectAllocatorFactory(ProductJson data)
         {
+            if (data.LineItems == null)
+                throw new Exception("Products require Line Items. Invalid json");
+
             foreach (var line in data.LineItems)
             {
                 line.Website = _converter.CastDynamicly(line.Website, line.ProductType);                
