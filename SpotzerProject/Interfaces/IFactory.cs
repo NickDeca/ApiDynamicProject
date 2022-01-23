@@ -1,9 +1,4 @@
-﻿using SpotzerProject.HelperFunctions;
-using SpotzerProject.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using SpotzerProject.Models;
 
 namespace SpotzerProject.Interfaces
 {

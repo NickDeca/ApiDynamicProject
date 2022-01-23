@@ -5,6 +5,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Interfaces\2ndApproach\**" />
+    <Compile Remove="Models\2ndApproach\**" />
+    <Content Remove="Interfaces\2ndApproach\**" />
+    <Content Remove="Models\2ndApproach\**" />
+    <EmbeddedResource Remove="Interfaces\2ndApproach\**" />
+    <EmbeddedResource Remove="Models\2ndApproach\**" />
+    <None Remove="Interfaces\2ndApproach\**" />
+    <None Remove="Models\2ndApproach\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Base\BaseRequest.cs" />
+    <Compile Remove="Base\ByProductBase.cs" />
+    <Compile Remove="Models\BaseDetail.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.13" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="SimpleInjector" Version="5.3.2" />

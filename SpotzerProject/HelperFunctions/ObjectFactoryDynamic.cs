@@ -11,7 +11,11 @@ namespace SpotzerProject.HelperFunctions
             _converter = new Converters();
         }
 
-
+        /// <summary>
+        /// Get the Json Data and dynamically convert the objects
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public ProductJson DynamicObjectAllocatorFactory(ProductJson data)
         {
             foreach (var line in data.LineItems)

@@ -1,20 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace SpotzerProject.Models
+﻿namespace SpotzerProject.Models
 {
-    public class Website : BaseModel
-    {
-        public Websitedetails WebsiteDetails { get; set; }
-
-        public Website(Websitedetails others)
-        {
-            WebsiteDetails = others;
-        }
-    }
-
     public class Websitedetails : IByProduct
     {
         public string TemplateId { get; set; }

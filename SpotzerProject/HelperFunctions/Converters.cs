@@ -17,6 +17,12 @@ namespace SpotzerProject.HelperFunctions
                 };
         }
 
+        /// <summary>
+        /// Gets an object and converts to Type from dictionary based on the type string
+        /// </summary>
+        /// <param name="objectCast"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public dynamic CastDynamicly(dynamic objectCast, string type)
         {
             if (!_typeDictionary.ContainsKey(type))
@@ -25,6 +31,12 @@ namespace SpotzerProject.HelperFunctions
             return Newtonsoft.Json.JsonConvert.DeserializeObject(objectCast.ToString(), _typeDictionary[type]);
         }
 
+        /// <summary>
+        /// Gets a Json string converts it to abstract class T
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public T JsonToObject<T>(string input) where T : class
         {
             try
@@ -33,10 +45,15 @@ namespace SpotzerProject.HelperFunctions
             }
             catch (Exception err)
             {
-                throw;
+                throw err;
             }
         }
 
+        /// <summary>
+        /// Gets a LineItems object and bast on the Product Type it dynamically convert it to the corresponding class from the dictionary
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
         public dynamic ConvertDynamiclyFromDictionary(BaseModel line)
         {
             var typeCast = _typeDictionary[line.ProductType];

@@ -1,21 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace SpotzerProject.Models
+﻿namespace SpotzerProject.Models
 {
-
-    public class PaidSearch : BaseModel
-    {
-        public Adwordcampaign AdWordCampaign { get; set; }
-
-        public PaidSearch(Adwordcampaign others)
-        {
-            AdWordCampaign = others;
-        }
-    }
-
     public class Adwordcampaign : IByProduct
     {
         public string CampaignName { get; set; }
