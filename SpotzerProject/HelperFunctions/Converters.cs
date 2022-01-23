@@ -11,11 +11,6 @@ namespace SpotzerProject.HelperFunctions
         public Converters(IDictionaryProvider provider)
         {
             _typeDictionary = provider.DataType;
-                //new Dictionary<string, Type>
-                //{
-                //    { "Paid Search", typeof(Adwordcampaign) },
-                //    { "sample string 18", typeof(Websitedetails) }
-                //};
         }
 
         /// <summary>
