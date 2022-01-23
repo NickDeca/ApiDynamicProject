@@ -7,14 +7,15 @@ namespace SpotzerProject.HelperFunctions
 {
     public class Converters : IConverterSp
     {
-        private Dictionary<string, Type> _typeDictionary;
-        public Converters()
+        private Dictionary<string,Type> _typeDictionary;
+        public Converters(IDictionaryProvider provider)
         {
-            _typeDictionary = new Dictionary<string, Type>
-                {
-                    { "Paid Search", typeof(Adwordcampaign) },
-                    { "sample string 18", typeof(Websitedetails) }
-                };
+            _typeDictionary = provider.DataType;
+                //new Dictionary<string, Type>
+                //{
+                //    { "Paid Search", typeof(Adwordcampaign) },
+                //    { "sample string 18", typeof(Websitedetails) }
+                //};
         }
 
         /// <summary>

@@ -41,6 +41,8 @@ namespace SpotzerProject
             container.Register<IFactory, ObjectFactoryDynamic>();
             container.RegisterSingleton<IConverterSp, Converters>();
 
+            container.RegisterSingleton<IDictionaryProvider,DictionaryProvider>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SpotzerProject", Version = "v1" });
